@@ -1,5 +1,11 @@
-import { Box, Typography } from "@mui/material";
+import { Box, ThemeProvider, Typography, createMuiTheme } from "@mui/material";
 
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Verdana, sans-serif',
+  },
+});
 interface HouseProps {
   color1: string;
   color2: string;
@@ -10,6 +16,7 @@ interface HouseProps {
 
 function House({ color1, color2, roomName, animal, founder }: HouseProps) {
   return (
+    <ThemeProvider theme={theme}>
     <Box
       sx={{
         display: "flex",
@@ -19,7 +26,7 @@ function House({ color1, color2, roomName, animal, founder }: HouseProps) {
         boxShadow:
           "rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px",
         width: "300px",
-        fontFamily: " Verdana",
+          fontFamily: "Verdana",
         padding: "15px 15px",
         borderRadius: "5px",
       }}
@@ -50,6 +57,7 @@ function House({ color1, color2, roomName, animal, founder }: HouseProps) {
         <Typography sx={{ fontWeight: 700 }}>{founder}</Typography>
       </Box>
     </Box>
+    </ThemeProvider>
   );
 }
 
